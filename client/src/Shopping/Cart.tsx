@@ -4,8 +4,6 @@ import Sale  from "./Sale";
 import { BsChevronLeft } from 'react-icons/bs';
 import { useNavigate } from "react-router-dom";
 
-
-
 const Cart = ({ cart, setCart, handleChange,discounts }:any) => {
   console.log(discounts)
   const [price, setPrice] = useState(0);
@@ -25,8 +23,6 @@ const Cart = ({ cart, setCart, handleChange,discounts }:any) => {
   useEffect(() => {
     handlePrice();
   });
-  
-
 
   return (
     
@@ -37,7 +33,6 @@ const Cart = ({ cart, setCart, handleChange,discounts }:any) => {
           <div>
             <p>{item.name}</p>
             <p className="price">{item.price}</p>
-            {/* <p>{discounts.name}</p> */}
           </div>
           <div className="cart_button">
             <button className="cart_button" onClick={() => handleChange(item, 1)}>+</button>

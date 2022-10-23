@@ -44,18 +44,6 @@ article {
   border-radius: 34px;
 }
 
-
-.cart_box div:nth-child(3) button:hover {
-  background-color: darkseagreen;
-}
-
-.cart_box div:nth-child(3) span {
-  background-color: lightgreen;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin-right: 10px;
-}
-
 .total {
   display: flex;
   justify-content: space-between;
@@ -65,7 +53,6 @@ article {
 .total span:nth-child(1) {
   font-size: 15px;
   color: gray;
-
 }
 
 .total span:nth-child(2) {

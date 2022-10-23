@@ -12,7 +12,7 @@ const Navbar = ({ setShow, size }:any) => {
         </span>
         <div className="cart" >
           <span>
-            <FiShoppingCart onClick={()=> navigate('/cart')} className="fas fa-cart-plus"/>
+            <FiShoppingCart onClick={()=> navigate('/cart')}/>
           </span>
           <span>{size}</span>
         </div>

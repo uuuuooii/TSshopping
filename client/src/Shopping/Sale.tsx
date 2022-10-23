@@ -36,7 +36,7 @@ const AddItem = ()=> {
             <div>
             {discounts.map((discounts) => (
               <>
-                <button >{discounts.name}</button>
+                <button>{discounts.name}</button>
                 <button onClick={() => SalehandleClick(discounts)}>추가</button>
                 <p>{discounts.rate}%</p>
               </>

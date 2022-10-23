@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Main from "./Shopping/Main";
 import Cart from "./Shopping/Cart";
 import Navbar from './components/Navbar'
+import Item from './Shopping/Item'
 
 const App = () => {
   const [cart, setCart] = useState([]);
-
   const handleClick = (item:any) => {
     if (cart.indexOf(item) !== -1) return;
     setCart([...cart, item]);
@@ -21,14 +20,12 @@ const App = () => {
     setCart([...arr]);
   };
 
- 
-
   return (
     <BrowserRouter>
       <Navbar size={cart.length} />
       <Routes>
         <Route>
-          <Route path="/" element={<Main  handleClick={handleClick}/>}/>
+          <Route path="/" element={<Item  handleClick={handleClick}/>}/>
           <Route path="/cart" element={<Cart cart={cart} setCart={setCart} handleChange={handleChange} />} />
         </Route>
       </Routes>
