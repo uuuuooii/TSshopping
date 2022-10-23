@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Item from "./Item";
-import ItemAdd from './ItemAdd';
-import Cart from '../Shopping/Cart'
 import GetItems from '../redux/Items'
-import type {  AppDispatch} from '../redux/ConfigureStore'
-import "../styles/main.css";
+import type {   useAppSelector, useAppDispatch } from '../redux/ConfigureStore'
+import "../styles/Main.css";
 
 const Main = ({ handleClick }:any) => {
   const [item, setItem] = useState([]);
-  const dispatch = useDispatch<AppDispatch>();
-  useEffect(() => {
-    
-    // dispatch(GetItems());
-  }, []);
+  const dispatch = useDispatch()
+  const CartItem = useSelector((state) => state);
+  console.log(CartItem)
+
+  // useEffect(() => {
+  //   dispatch(GetItems());
+  // }, []);
 
   useEffect(() => {
     fetch("http://localhost:3001/items")
@@ -29,6 +29,7 @@ const Main = ({ handleClick }:any) => {
       {item.map((item) => (
         <>
           <Item key={item.id} item={item} handleClick={handleClick} />
+          
         </>
       ))}
 

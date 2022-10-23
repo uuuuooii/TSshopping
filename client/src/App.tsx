@@ -3,8 +3,6 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Main from "./Shopping/Main";
 import Cart from "./Shopping/Cart";
 import Navbar from './components/Navbar'
-import Item from "./Shopping/Item";
-import ItemAdd from './Shopping/ItemAdd'
 
 const App = () => {
   const [cart, setCart] = useState([]);
@@ -23,9 +21,7 @@ const App = () => {
     setCart([...arr]);
   };
 
-  // useEffect(() => {
-  //   console.log("cart change");
-  // }, [cart]);
+ 
 
   return (
     <BrowserRouter>
@@ -34,7 +30,6 @@ const App = () => {
         <Route>
           <Route path="/" element={<Main  handleClick={handleClick}/>}/>
           <Route path="/cart" element={<Cart cart={cart} setCart={setCart} handleChange={handleChange} />} />
-          <Route path="/itemadd" element={<ItemAdd item={Item}/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

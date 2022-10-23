@@ -1,6 +1,6 @@
 import { FiShoppingCart } from 'react-icons/fi';
 import { useNavigate} from "react-router-dom";
-import "../styles/navbar.css";
+import "../styles/Navbar.css";
 
 const Navbar = ({ setShow, size }:any) => {
   const navigate = useNavigate()

@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import "../styles/cart.css";
-import ItemAdd  from "./ItemAdd";
-import Sale  from "../components/Sale";
+import "../styles/Cart.css";
+import Sale  from "./Sale";
 import { BsChevronLeft } from 'react-icons/bs';
 import { useNavigate } from "react-router-dom";
 
 
 
-const Cart = ({ cart, setCart, handleChange }:any) => {
+const Cart = ({ cart, setCart, handleChange,discounts }:any) => {
+  console.log(discounts)
   const [price, setPrice] = useState(0);
   const navigate = useNavigate();
   const handleRemove = (id:any) => {
@@ -25,19 +25,19 @@ const Cart = ({ cart, setCart, handleChange }:any) => {
   useEffect(() => {
     handlePrice();
   });
+  
 
 
   return (
     
     <article>
       <BsChevronLeft onClick={() => navigate('/')} className="caer_icon"/>
-      <ItemAdd/>
-      <Sale/>
       {cart.map((item:any) => (
         <div className="cart_box" key={item.id}>
           <div>
             <p>{item.name}</p>
             <p className="price">{item.price}</p>
+            {/* <p>{discounts.name}</p> */}
           </div>
           <div className="cart_button">
             <button className="cart_button" onClick={() => handleChange(item, 1)}>+</button>
@@ -54,6 +54,7 @@ const Cart = ({ cart, setCart, handleChange }:any) => {
         <span>합계</span>
         <span>{price}원</span>
       </div>
+      <Sale/>
     </article>
   );
 };

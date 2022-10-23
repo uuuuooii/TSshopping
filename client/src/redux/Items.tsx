@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const GetItems = createAsyncThunk(
+export const GetItems:any = createAsyncThunk(
   "/items",
   async () => {
     try {
@@ -9,20 +9,16 @@ export const GetItems = createAsyncThunk(
       const data = response.data.data;
       return data;
     } catch (error) {}
+   
   }
 );
 
-
 const Items = createSlice({
   name: "items",
-  initialState: {
-    items: [],
-  },
+  initialState:[],
   reducers: {},
   extraReducers: {
-    // [GetItems.fulfilled]: (state, action) => {
-    //   state.challenge = action.payload;
-    // }
+ 
   },
 });
 
