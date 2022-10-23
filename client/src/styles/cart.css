@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+article {
+  margin: auto;
+}
+
+.caer_icon {
+  margin: -31px 0px 27px 21px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.cart_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 21px 0px 25px;
+  /* border-bottom: 0.5px solid gray; */
+  padding-bottom: 5px;
+}
+
+.cart_button {
+  padding: 0px 9px 1px 9px;
+  border: none;
+  background-color: rgba(240, 238, 238, 0.861);
+  outline: none;
+  border-radius: 34px;
+}
+
+.cart_box div:nth-child(2) button {
+  padding: 5px 10px;
+  margin-right: 5px;
+}
+
+.cart_box div:nth-child(3) button {
+  width: 61px;
+  padding: 7px 7px 5px 7px;
+  border: none;
+  background-color: #9886F0;
+  outline: none;
+  border-radius: 34px;
+}
+
+
+.cart_box div:nth-child(3) button:hover {
+  background-color: darkseagreen;
+}
+
+.cart_box div:nth-child(3) span {
+  background-color: lightgreen;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin: 200px 52px 17px 36px;
+}
+
+.total span:nth-child(1) {
+  font-size: 15px;
+  color: gray;
+
+}
+
+.total span:nth-child(2) {
+  font-size: 25px;
+  color: rgb(39, 38, 38);
+}
