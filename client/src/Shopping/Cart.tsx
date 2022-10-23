@@ -1,22 +1,21 @@
 import { useState, useEffect } from "react";
 import "../styles/Cart.css";
-import Sale  from "./Sale";
+import Sale from "./Sale";
 import { BsChevronLeft } from 'react-icons/bs';
 import { useNavigate } from "react-router-dom";
 
-const Cart = ({ cart, setCart, handleChange,discounts }:any) => {
-  console.log(discounts)
+const Cart = ({ cart, setCart, handleChange, discounts }: any) => {
   const [price, setPrice] = useState(0);
   const navigate = useNavigate();
-  const handleRemove = (id:any) => {
-    const arr = cart.filter((item:any) => item.id !== id);
+  const handleRemove = (id: any) => {
+    const arr = cart.filter((item: any) => item.id !== id);
     setCart(arr);
     handlePrice();
   };
 
   const handlePrice = () => {
     let ans = 0;
-    cart.map((item:any) => (ans += item.count * item.price));
+    cart.map((item: any) => (ans += item.count * item.price));
     setPrice(ans);
   };
 
@@ -25,10 +24,10 @@ const Cart = ({ cart, setCart, handleChange,discounts }:any) => {
   });
 
   return (
-    
+
     <article>
-      <BsChevronLeft onClick={() => navigate('/')} className="caer_icon"/>
-      {cart.map((item:any) => (
+      <BsChevronLeft onClick={() => navigate('/')} className="caer_icon" />
+      {cart.map((item: any) => (
         <div className="cart_box" key={item.id}>
           <div>
             <p>{item.name}</p>
@@ -42,14 +41,14 @@ const Cart = ({ cart, setCart, handleChange,discounts }:any) => {
           <div>
             <button onClick={() => handleRemove(item.id)}>삭제</button>
           </div>
-      </div>
+        </div>
       ))}
-      
+
       <div className="total">
         <span>합계</span>
         <span>{price}원</span>
       </div>
-      <Sale/>
+      <Sale />
     </article>
   );
 };
