@@ -48,6 +48,80 @@ yarn start
 
 <br/>
 
+# 기능
+
+- item data
+
+```javascript
+const [item, setItem] = useState([]);
+useEffect(() => {
+  fetch("http://localhost:3001/items")
+    .then((res) => res.json())
+    .then((res) => {
+      setItem(res);
+    });
+}, []);
+```
+
+- discounts data
+
+```javascript
+const [discounts, setDiscounts] = useState([]);
+useEffect(() => {
+  fetch("http://localhost:3001/discounts")
+    .then((res) => res.json())
+    .then((res) => {
+      setDiscounts(res);
+    });
+}, []);
+```
+
+- 장바구니 담기
+
+```javascript
+const handleClick = (item: any) => {
+  if (cart.indexOf(item) !== -1) return;
+  setCart([...cart, item]);
+};
+```
+
+- 금액 변경
+
+```javascript
+const handlePrice = () => {
+  let ans = 0;
+  cart.map((item: any) => (ans += item.count * item.price));
+  setPrice(ans);
+};
+
+useEffect(() => {
+  handlePrice();
+});
+```
+
+- 개수 변경
+
+```javascript
+const handleChange = (item: any, d: any) => {
+  const ind = cart.indexOf(item);
+  const arr = cart;
+  arr[ind].count += d;
+
+  if (arr[ind].count === 0) arr[ind].count = 1;
+  setCart([...arr]);
+};
+```
+
+- 삭제
+
+```javascript
+const handleRemove = (id: any) => {
+  const arr = cart.filter((item: any) => item.id !== id);
+  setCart(arr);
+  handlePrice();
+};
+```
+
 # 진행 중
 
 - 할인 기능
