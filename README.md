@@ -1,8 +1,32 @@
 # 상품 리스트 및 장바구니 기능 구현 과제 (Developed by 김은혜)
 
-<img src = "./client/public/image/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-10-24%20%EC%98%A4%EC%A0%84%205.12.29.png" width= "30%" height="30%">
-<img src ="./client/public/image/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-10-24%20%EC%98%A4%EC%A0%84%205.13.08.png"width= "30%" height="30%">
+<img src = "./client/public/image/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-10-24%20%EC%98%A4%EC%A0%84%205.12.29.png" width= "30%" height="30%" align="left">
+<img src ="./client/public/image/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-10-24%20%EC%98%A4%EC%A0%84%205.13.08.png"width= "30%" height="30%" align="left">
 
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 </br>
 
 ## 실행 방법
@@ -81,7 +105,7 @@ useEffect(() => {
 ```javascript
 const handleClick = (item: any) => {
   if (cart.indexOf(item) !== -1) return;
-  setCart([...cart, item]);
+  setCart((prev)=([...prev, item]);
 };
 ```
 
