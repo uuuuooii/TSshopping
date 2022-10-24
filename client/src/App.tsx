@@ -26,7 +26,7 @@ const App = () => {
       <Routes>
         <Route>
           <Route path="/" element={<Item handleClick={handleClick} />} />
-          <Route path="/cart" element={<Cart setCart={setCart} handleChange={handleChange} />} />
+          <Route path="/cart" element={<Cart cart={cart} setCart={setCart} handleChange={handleChange} />} />
         </Route>
       </Routes>
     </BrowserRouter>
