@@ -4,8 +4,11 @@ import Sale from "./Sale";
 import { BsChevronLeft } from 'react-icons/bs';
 import { useNavigate } from "react-router-dom";
 
-const Cart = ({ cart, setCart, handleChange, discounts }: any) => {
+function Cart({ cart, setCart, handleChange }: any) {
   const [price, setPrice] = useState(0);
+  const [discounts, setDiscounts] = useState([]);
+  const [disItem, setDisItem] = useState([]);
+
   const navigate = useNavigate();
   const handleRemove = (id: any) => {
     const arr = cart.filter((item: any) => item.id !== id);
@@ -20,12 +23,16 @@ const Cart = ({ cart, setCart, handleChange, discounts }: any) => {
   };
 
   useEffect(() => {
-    handlePrice();
-  });
+    fetch("http://localhost:3001/discounts")
+      .then((res) => res.json())
+      .then((res) => {
+        setDiscounts(res);
+      });
+  }, []);
 
   return (
 
-    <article>
+    <>
       <BsChevronLeft onClick={() => navigate('/')} className="caer_icon" />
       {cart.map((item: any) => (
         <div className="cart_box" key={item.id}>
@@ -44,12 +51,18 @@ const Cart = ({ cart, setCart, handleChange, discounts }: any) => {
         </div>
       ))}
 
+      {disItem.map((item: any) => {
+        return (
+          <p>{item.name}</p>
+        )
+      })}
       <div className="total">
         <span>합계</span>
         <span>{price}원</span>
       </div>
-      <Sale />
-    </article>
+      <Sale discounts={discounts} setDiscounts={setDiscounts} setDisItem={setDisItem} />
+
+    </>
   );
 };
 

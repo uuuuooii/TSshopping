@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import Modal from "../modal/Modal";
 import "../styles/Sale.css";
 
-const AddItem = () => {
+const Sale = ({ discounts, setDisItem }: any) => {
+
   //모달
   const [modalOpen, setModalOpen] = useState(false);
   const openModal = () => {
@@ -12,17 +13,10 @@ const AddItem = () => {
     setModalOpen(false);
   };
 
-  const [discounts, setDiscounts] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:3001/discounts")
-      .then((res) => res.json())
-      .then((res) => {
-        setDiscounts(res);
-      });
-  }, []);
-
   const SalehandleClick = (item: any) => {
-    discounts.push(item);
+    setDisItem((prev: any) => {
+      return [...prev, item];
+    })
   }
 
   return (
@@ -30,7 +24,7 @@ const AddItem = () => {
       <button className="sale_button" onClick={openModal}>+할인</button>
       <Modal open={modalOpen} close={closeModal} header="할인 메뉴">
         <div>
-          {discounts.map((discounts) => (
+          {discounts.map((discounts: any) => (
             <div key={discounts}>
               <span>{discounts.name}</span>&nbsp;&nbsp;
               <span>{discounts.rate}%</span>&nbsp;&nbsp;&nbsp;
@@ -42,4 +36,4 @@ const AddItem = () => {
     </div>
   )
 }
-export default AddItem
+export default Sale

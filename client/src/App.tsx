@@ -6,12 +6,12 @@ import Item from './Shopping/Item'
 
 const App = () => {
   const [cart, setCart] = useState([]);
-  const handleClick = (item:any) => {
+  const handleClick = (item: any) => {
     if (cart.indexOf(item) !== -1) return;
-    setCart([...cart, item]);
+    setCart((prev) => [...prev, item]);
   };
 
-  const handleChange = (item:any, d:any) => {
+  const handleChange = (item: any, d: any) => {
     const ind = cart.indexOf(item);
     const arr = cart;
     arr[ind].count += d;
@@ -25,8 +25,8 @@ const App = () => {
       <Navbar size={cart.length} />
       <Routes>
         <Route>
-          <Route path="/" element={<Item  handleClick={handleClick}/>}/>
-          <Route path="/cart" element={<Cart cart={cart} setCart={setCart} handleChange={handleChange} />} />
+          <Route path="/" element={<Item handleClick={handleClick} />} />
+          <Route path="/cart" element={<Cart setCart={setCart} handleChange={handleChange} />} />
         </Route>
       </Routes>
     </BrowserRouter>
